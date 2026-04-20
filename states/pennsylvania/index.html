@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nonprofits in Pennsylvania — Sitemap (Lean) — Roundup.org</title>
+  <title>Nonprofits in Pennsylvania — Sitemap — Roundup.org</title>
+  <link rel="canonical" href="index.html">
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -30,10 +31,20 @@
       </nav>
 
       <header class="page-head">
-        <div class="kicker">Pennsylvania · 84,502 Nonprofits</div>
-        <h1>Nonprofits in <em>Pennsylvania</em></h1>
-        <p class="dek">Browse <strong>84,502 PA nonprofits</strong> by cause. Pick a category to narrow down and filter further.</p>
+        <div class="kicker" id="page-kicker">Pennsylvania · 84,502 Nonprofits</div>
+        <h1>Nonprofits in <em id="page-location">Pennsylvania</em></h1>
+        <p class="dek" id="page-dek">Browse <strong>84,502 PA nonprofits</strong> by cause. Pick a category to narrow down, or jump to a top city below.</p>
       </header>
+
+      <!-- ============= ACTIVE FILTER CHIP (shown when ?city=X) ============= -->
+      <div class="filter-chip-bar" id="filter-chip-bar" hidden>
+        <div class="filter-chip">
+          <span class="filter-chip-label">Filtering by:</span>
+          <span class="filter-chip-value" id="filter-chip-value">Philadelphia</span>
+          <a href="index.html" class="filter-chip-clear" aria-label="Clear filter">&times;</a>
+        </div>
+        <span class="filter-chip-summary" id="filter-chip-summary">Cause counts scoped to Philadelphia</span>
+      </div>
 
       <section>
         <div class="section-head">
@@ -41,64 +52,58 @@
             <span class="section-num">Step 2 —</span>
             <h2 class="section-title">Choose a cause</h2>
           </div>
-          <span class="section-note">22 Categories · PA nonprofits only</span>
+          <span class="section-note" id="cause-list-note">22 Categories · PA nonprofits only</span>
         </div>
 
-        <div class="cause-list">
-          <a href="#" class="cause-item"><span class="cause-name">Animal Welfare</span><span class="cause-count">1,488</span></a>
-          <a href="../../causes/environment/pa/index.html" class="cause-item" data-active="true">
-            <span class="cause-name">Animals &amp; Environment</span>
-            <span class="cause-count">3,244</span>
-          </a>
-          <a href="#" class="cause-item"><span class="cause-name">Arts, Culture &amp; Humanities</span><span class="cause-count">4,602</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Civil Rights &amp; Advocacy</span><span class="cause-count">884</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Community Development</span><span class="cause-count">5,811</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Disaster Relief</span><span class="cause-count">341</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Education</span><span class="cause-count">11,402</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Food &amp; Nutrition</span><span class="cause-count">1,288</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Health</span><span class="cause-count">6,908</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Housing &amp; Shelter</span><span class="cause-count">2,184</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Human Services</span><span class="cause-count">8,902</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">International Affairs</span><span class="cause-count">612</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Medical Research</span><span class="cause-count">1,108</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Mental Health</span><span class="cause-count">1,641</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Philanthropy &amp; Grantmaking</span><span class="cause-count">6,208</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Public Policy &amp; Research</span><span class="cause-count">922</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Recreation &amp; Sports</span><span class="cause-count">2,881</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Religion</span><span class="cause-count">14,602</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Science &amp; Technology</span><span class="cause-count">541</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Social Services</span><span class="cause-count">4,502</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Veterans &amp; Military</span><span class="cause-count">822</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Youth Development</span><span class="cause-count">2,622</span></a>
-          <a href="#" class="cause-item"><span class="cause-name">Other</span><span class="cause-count">10,428</span></a>
+        <div class="cause-list" id="cause-list">
+          <a href="#" class="cause-item" data-cause="animal-welfare"><span class="cause-name">Animal Welfare</span><span class="cause-count">1,488</span></a>
+          <a href="../../causes/environment/pa/index.html" class="cause-item" data-cause="animals-environment" data-active="true"><span class="cause-name">Animals &amp; Environment</span><span class="cause-count">3,244</span></a>
+          <a href="#" class="cause-item" data-cause="arts-culture"><span class="cause-name">Arts, Culture &amp; Humanities</span><span class="cause-count">4,602</span></a>
+          <a href="#" class="cause-item" data-cause="civil-rights"><span class="cause-name">Civil Rights &amp; Advocacy</span><span class="cause-count">884</span></a>
+          <a href="#" class="cause-item" data-cause="community-development"><span class="cause-name">Community Development</span><span class="cause-count">5,811</span></a>
+          <a href="#" class="cause-item" data-cause="disaster-relief"><span class="cause-name">Disaster Relief</span><span class="cause-count">341</span></a>
+          <a href="#" class="cause-item" data-cause="education"><span class="cause-name">Education</span><span class="cause-count">11,402</span></a>
+          <a href="#" class="cause-item" data-cause="food-nutrition"><span class="cause-name">Food &amp; Nutrition</span><span class="cause-count">1,288</span></a>
+          <a href="#" class="cause-item" data-cause="health"><span class="cause-name">Health</span><span class="cause-count">6,908</span></a>
+          <a href="#" class="cause-item" data-cause="housing"><span class="cause-name">Housing &amp; Shelter</span><span class="cause-count">2,184</span></a>
+          <a href="#" class="cause-item" data-cause="human-services"><span class="cause-name">Human Services</span><span class="cause-count">8,902</span></a>
+          <a href="#" class="cause-item" data-cause="international"><span class="cause-name">International Affairs</span><span class="cause-count">612</span></a>
+          <a href="#" class="cause-item" data-cause="medical-research"><span class="cause-name">Medical Research</span><span class="cause-count">1,108</span></a>
+          <a href="#" class="cause-item" data-cause="mental-health"><span class="cause-name">Mental Health</span><span class="cause-count">1,641</span></a>
+          <a href="#" class="cause-item" data-cause="philanthropy"><span class="cause-name">Philanthropy &amp; Grantmaking</span><span class="cause-count">6,208</span></a>
+          <a href="#" class="cause-item" data-cause="public-policy"><span class="cause-name">Public Policy &amp; Research</span><span class="cause-count">922</span></a>
+          <a href="#" class="cause-item" data-cause="recreation"><span class="cause-name">Recreation &amp; Sports</span><span class="cause-count">2,881</span></a>
+          <a href="#" class="cause-item" data-cause="religion"><span class="cause-name">Religion</span><span class="cause-count">14,602</span></a>
+          <a href="#" class="cause-item" data-cause="science-tech"><span class="cause-name">Science &amp; Technology</span><span class="cause-count">541</span></a>
+          <a href="#" class="cause-item" data-cause="social-services"><span class="cause-name">Social Services</span><span class="cause-count">4,502</span></a>
+          <a href="#" class="cause-item" data-cause="veterans"><span class="cause-name">Veterans &amp; Military</span><span class="cause-count">822</span></a>
+          <a href="#" class="cause-item" data-cause="youth-development"><span class="cause-name">Youth Development</span><span class="cause-count">2,622</span></a>
+          <a href="#" class="cause-item" data-cause="other"><span class="cause-name">Other</span><span class="cause-count">10,428</span></a>
         </div>
       </section>
 
-      <section style="margin-top: 56px;">
+      <section id="top-cities-section" style="margin-top: 56px;">
         <div class="section-head">
           <div class="section-label">
             <span class="section-num">—</span>
-            <h2 class="section-title">Or jump to a top PA city</h2>
+            <h2 class="section-title">Or narrow to a top PA city</h2>
           </div>
-          <span class="section-note">Most-nonprofit cities</span>
+          <span class="section-note">Cause counts will update</span>
         </div>
 
         <p style="font-size: 14px; color: var(--ink-soft); margin-bottom: 20px; font-weight: 500; max-width: 620px;">
-          These top-city shortcuts drop you into a cause + city filtered view. For example, picking Philadelphia below takes you to &ldquo;Education in Philadelphia&rdquo; as a starter — change the cause once you arrive.
+          Pick a city to scope the cause counts above. Then choose a cause to drill in — your city filter will carry through.
         </p>
 
         <div class="featured-grid">
-          <a href="../../causes/environment/pa/index.html?city=philadelphia" class="featured-city" data-active="true">
-            <span class="featured-name">Philadelphia</span>
-            <span class="featured-count">8,542 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city"><span class="featured-name">Pittsburgh</span><span class="featured-count">6,208 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">Harrisburg</span><span class="featured-count">1,804 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">Lancaster</span><span class="featured-count">1,442 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">Allentown</span><span class="featured-count">1,204 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">Erie</span><span class="featured-count">1,088 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">York</span><span class="featured-count">908 nonprofits</span></a>
-          <a href="#" class="featured-city"><span class="featured-name">Scranton</span><span class="featured-count">902 nonprofits</span></a>
+          <a href="?city=philadelphia" class="featured-city" data-active="true"><span class="featured-name">Philadelphia</span><span class="featured-count">8,542 nonprofits</span></a>
+          <a href="?city=pittsburgh" class="featured-city"><span class="featured-name">Pittsburgh</span><span class="featured-count">6,208 nonprofits</span></a>
+          <a href="?city=harrisburg" class="featured-city"><span class="featured-name">Harrisburg</span><span class="featured-count">1,804 nonprofits</span></a>
+          <a href="?city=lancaster" class="featured-city"><span class="featured-name">Lancaster</span><span class="featured-count">1,442 nonprofits</span></a>
+          <a href="?city=allentown" class="featured-city"><span class="featured-name">Allentown</span><span class="featured-count">1,204 nonprofits</span></a>
+          <a href="?city=erie" class="featured-city"><span class="featured-name">Erie</span><span class="featured-count">1,088 nonprofits</span></a>
+          <a href="?city=york" class="featured-city"><span class="featured-name">York</span><span class="featured-count">908 nonprofits</span></a>
+          <a href="?city=scranton" class="featured-city"><span class="featured-name">Scranton</span><span class="featured-count">902 nonprofits</span></a>
         </div>
       </section>
 
@@ -111,6 +116,75 @@
       <span>&copy; 2026 Roundup.org, Inc.</span>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      // City-scoped cause counts. In production, this comes from the server.
+      // Demo: Philadelphia is wired up to show the pattern.
+      var CITY_DATA = {
+        philadelphia: {
+          label: 'Philadelphia',
+          total: '8,542',
+          counts: {
+            'animal-welfare': '112',
+            'animals-environment': '184',
+            'arts-culture': '411',
+            'civil-rights': '98',
+            'community-development': '622',
+            'disaster-relief': '14',
+            'education': '1,108',
+            'food-nutrition': '141',
+            'health': '802',
+            'housing': '288',
+            'human-services': '1,402',
+            'international': '68',
+            'medical-research': '244',
+            'mental-health': '198',
+            'philanthropy': '544',
+            'public-policy': '72',
+            'recreation': '288',
+            'religion': '1,208',
+            'science-tech': '48',
+            'social-services': '622',
+            'veterans': '82',
+            'youth-development': '341',
+            'other': '549'
+          }
+        }
+      };
+
+      var params = new URLSearchParams(window.location.search);
+      var city = (params.get('city') || '').toLowerCase().trim();
+      if (!city || !CITY_DATA[city]) return;
+
+      var data = CITY_DATA[city];
+
+      document.getElementById('page-kicker').textContent = data.label + ', PA · ' + data.total + ' Nonprofits';
+      document.getElementById('page-location').textContent = data.label;
+      document.getElementById('page-dek').innerHTML =
+        'Browse <strong>' + data.total + ' nonprofits in ' + data.label + '</strong> by cause. Pick a category to drill in — the city filter will carry through.';
+
+      document.getElementById('filter-chip-bar').hidden = false;
+      document.getElementById('filter-chip-value').textContent = data.label;
+      document.getElementById('filter-chip-summary').textContent = 'Cause counts scoped to ' + data.label;
+      document.getElementById('cause-list-note').textContent = '22 Categories · ' + data.label + ' only';
+
+      document.getElementById('top-cities-section').style.display = 'none';
+
+      document.querySelectorAll('.cause-item').forEach(function (item) {
+        var key = item.getAttribute('data-cause');
+        var countEl = item.querySelector('.cause-count');
+        if (key && data.counts[key] && countEl) {
+          countEl.textContent = data.counts[key];
+        }
+        var href = item.getAttribute('href');
+        if (href && href !== '#') {
+          var sep = href.indexOf('?') === -1 ? '?' : '&';
+          item.setAttribute('href', href + sep + 'city=' + city);
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>
