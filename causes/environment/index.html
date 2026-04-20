@@ -41,12 +41,16 @@
       </header>
 
       <div class="filter-chip-bar" id="chip-bar" hidden>
-        <div class="filter-chip">
-          <span class="filter-chip-label">Filtering by:</span>
-          <span class="filter-chip-value" id="chip-value">Philadelphia</span>
-          <a href="#" class="filter-chip-clear" id="chip-clear" aria-label="Clear city filter">&times;</a>
+        <span class="filter-chip-label">Filtering by:</span>
+        <div class="filter-chip" id="state-chip" hidden>
+          <span class="filter-chip-value" id="state-chip-value">Pennsylvania</span>
+          <a href="index.html" class="filter-chip-clear" id="state-chip-clear" aria-label="Clear state filter">&times;</a>
         </div>
-        <span class="filter-chip-summary" id="chip-summary">Showing 184 of 3,244 nonprofits</span>
+        <div class="filter-chip" id="city-chip" hidden>
+          <span class="filter-chip-value" id="city-chip-value">Philadelphia</span>
+          <a href="#" class="filter-chip-clear" id="city-chip-clear" aria-label="Clear city filter">&times;</a>
+        </div>
+        <span class="filter-chip-summary" id="chip-summary"></span>
       </div>
 
       <section id="hub-mode">
@@ -327,13 +331,20 @@
       totalCountEl.textContent = stateData.total;
 
       var chipBar = document.getElementById('chip-bar');
-      var chipValue = document.getElementById('chip-value');
-      var chipSummary = document.getElementById('chip-summary');
-      var chipClear = document.getElementById('chip-clear');
+      var stateChip = document.getElementById('state-chip');
+      var stateChipValue = document.getElementById('state-chip-value');
+      var cityChip = document.getElementById('city-chip');
+      var cityChipValue = document.getElementById('city-chip-value');
+      var cityChipClear = document.getElementById('city-chip-clear');
       var topCitiesSection = document.getElementById('top-cities-section');
       var items = document.querySelectorAll('.nonprofit-item');
       var empty = document.getElementById('filter-empty');
       var input = document.getElementById('nonprofit-filter');
+
+      // Always show the state pill in listing mode (state is an active filter)
+      chipBar.hidden = false;
+      stateChip.hidden = false;
+      stateChipValue.textContent = stateData.label;
 
       function applyFilters() {
         var q = input.value.toLowerCase().trim();
@@ -366,10 +377,9 @@
         resultsSubheading.textContent = 'Sample of ' + cityData.count;
         totalCountEl.textContent = cityData.count;
 
-        chipBar.hidden = false;
-        chipValue.textContent = cityData.label;
-        chipSummary.textContent = 'Showing ' + cityData.count + ' of ' + stateData.total + ' nonprofits';
-        chipClear.setAttribute('href', '?state=' + state);
+        cityChip.hidden = false;
+        cityChipValue.textContent = cityData.label;
+        cityChipClear.setAttribute('href', '?state=' + state);
         topCitiesSection.style.display = 'none';
       }
 
