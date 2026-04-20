@@ -1072,6 +1072,8 @@ h1 em {
   margin-bottom: 36px;
 }
 
+.filter-chip-bar[hidden] { display: none; }
+
 .filter-chip {
   display: inline-flex;
   align-items: center;
