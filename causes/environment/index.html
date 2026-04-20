@@ -288,6 +288,36 @@
             </svg>
             <input type="text" class="city-search-input" id="nonprofit-filter" placeholder="Search nonprofits by name" autocomplete="off" aria-label="Search nonprofits">
           </div>
+          <div class="alpha-filter" id="alpha-filter">
+            <span class="label">Jump to —</span>
+            <a href="#" class="active" data-letter="">All</a>
+            <a href="#" data-letter="a">A</a>
+            <a href="#" data-letter="b">B</a>
+            <a href="#" data-letter="c">C</a>
+            <a href="#" data-letter="d">D</a>
+            <a href="#" data-letter="e">E</a>
+            <a href="#" data-letter="f">F</a>
+            <a href="#" data-letter="g">G</a>
+            <a href="#" data-letter="h">H</a>
+            <a href="#" data-letter="i">I</a>
+            <a href="#" data-letter="j">J</a>
+            <a href="#" data-letter="k">K</a>
+            <a href="#" data-letter="l">L</a>
+            <a href="#" data-letter="m">M</a>
+            <a href="#" data-letter="n">N</a>
+            <a href="#" data-letter="o">O</a>
+            <a href="#" data-letter="p">P</a>
+            <a href="#" data-letter="q">Q</a>
+            <a href="#" data-letter="r">R</a>
+            <a href="#" data-letter="s">S</a>
+            <a href="#" data-letter="t">T</a>
+            <a href="#" data-letter="u">U</a>
+            <a href="#" data-letter="v">V</a>
+            <a href="#" data-letter="w">W</a>
+            <a href="#" data-letter="x">X</a>
+            <a href="#" data-letter="y">Y</a>
+            <a href="#" data-letter="z">Z</a>
+          </div>
 
           <div class="nonprofit-list">
             <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="audubon mid-atlantic"><div class="nonprofit-main"><span class="nonprofit-name">Audubon Mid-Atlantic</span><div class="nonprofit-meta"><span>Philadelphia, PA 19130</span><span class="dot">·</span><span>Wildlife Protection</span></div><p class="nonprofit-mission">Protects birds and the places they need to thrive through conservation, education, and advocacy.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 13-1624102</span></div></a>
@@ -323,13 +353,21 @@
 
             <a href="#" class="nonprofit-item" data-city="york" data-name="york audubon society"><div class="nonprofit-main"><span class="nonprofit-name">York Audubon Society</span><div class="nonprofit-meta"><span>York, PA 17403</span><span class="dot">·</span><span>Bird Conservation</span></div><p class="nonprofit-mission">Protects local bird populations and their habitats through advocacy, community science, and education programs in York County.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2044188</span></div></a>
 
+            <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="delaware valley greenhouse alliance"><div class="nonprofit-main"><span class="nonprofit-name">Delaware Valley Greenhouse Alliance</span><div class="nonprofit-meta"><span>Philadelphia, PA 19118</span><span class="dot">·</span><span>Urban Agriculture</span></div><p class="nonprofit-mission">Builds community-owned greenhouses and food forests across Philadelphia neighborhoods to increase food sovereignty and ecological literacy.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 81-2205417</span></div></a>
+
+            <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="heritage conservancy"><div class="nonprofit-main"><span class="nonprofit-name">Heritage Conservancy</span><div class="nonprofit-meta"><span>Philadelphia, PA 19103</span><span class="dot">·</span><span>Land Trust</span></div><p class="nonprofit-mission">Preserves and protects natural and historic heritage through land protection, historic preservation, and community planning.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1701944</span></div></a>
+
+            <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="tookany tacony-frankford watershed partnership"><div class="nonprofit-main"><span class="nonprofit-name">Tookany/Tacony-Frankford Watershed Partnership</span><div class="nonprofit-meta"><span>Philadelphia, PA 19144</span><span class="dot">·</span><span>Watershed Protection</span></div><p class="nonprofit-mission">Works to promote the health of the TTF watershed and empower people to become stewards of the water and land.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2996711</span></div></a>
+
+            <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="urban tree connection"><div class="nonprofit-main"><span class="nonprofit-name">Urban Tree Connection</span><div class="nonprofit-meta"><span>Philadelphia, PA 19139</span><span class="dot">·</span><span>Urban Agriculture</span></div><p class="nonprofit-mission">Partners with neighborhood residents in West Philadelphia to transform vacant land into safe, productive spaces that promote community development.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2712008</span></div></a>
+
             <a href="#" class="nonprofit-item" data-city="bethlehem" data-name="lehigh valley conservancy"><div class="nonprofit-main"><span class="nonprofit-name">Lehigh Valley Conservancy</span><div class="nonprofit-meta"><span>Bethlehem, PA 18015</span><span class="dot">·</span><span>Open Space · Farmland</span></div><p class="nonprofit-mission">Preserves open space, farmland, and natural habitats throughout the Lehigh Valley region.</p></div><div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2711044</span></div></a>
           </div>
 
           <div class="filter-empty" id="filter-empty"><p>No nonprofits match your filter.</p></div>
 
           <div class="pagination">
-            <span class="count">Showing <strong id="visible-count">26</strong> of <strong id="total-count">3,244</strong></span>
+            <span class="count">Showing <strong id="visible-count">30</strong> of <strong id="total-count">3,244</strong></span>
             <div class="page-links">
               <a href="#" class="arrow">&larr;</a>
               <a href="#" class="current">1</a>
@@ -425,6 +463,8 @@
       stateChip.hidden = false;
       stateChipValue.textContent = stateData.label;
 
+      var activeLetter = '';
+
       function applyFilters() {
         var q = input.value.toLowerCase().trim();
         var shown = 0;
@@ -433,13 +473,26 @@
           var itemName = item.getAttribute('data-name') || '';
           var cityMatch = !city || itemCity === city;
           var queryMatch = !q || itemName.indexOf(q) !== -1;
-          var visible = cityMatch && queryMatch;
+          var letterMatch = !activeLetter || (itemName.charAt(0) === activeLetter);
+          var visible = cityMatch && queryMatch && letterMatch;
           item.classList.toggle('is-hidden', !visible);
           if (visible) shown++;
         });
         empty.style.display = (shown === 0) ? 'block' : 'none';
         visibleCountEl.textContent = shown;
       }
+
+      // Wire up alpha-filter letter clicks
+      var alphaLinks = document.querySelectorAll('#alpha-filter a');
+      alphaLinks.forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          alphaLinks.forEach(function (x) { x.classList.remove('active'); });
+          a.classList.add('active');
+          activeLetter = a.getAttribute('data-letter') || '';
+          applyFilters();
+        });
+      });
 
       if (city && stateData.cities[city]) {
         var cityData = stateData.cities[city];
