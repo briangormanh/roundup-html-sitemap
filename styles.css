@@ -877,6 +877,8 @@ h1 em {
   padding-left: 8px;
 }
 
+.nonprofit-item.is-hidden { display: none; }
+
 .nonprofit-item:hover .nonprofit-name {
   color: var(--accent);
 }

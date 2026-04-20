@@ -48,6 +48,13 @@
           <span class="section-note">Page 1 of 6</span>
         </div>
 
+        <div class="city-search">
+          <svg class="city-search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="9" r="6"/><path d="m17 17-3.5-3.5"/>
+          </svg>
+          <input type="text" class="city-search-input" id="nonprofit-filter" placeholder="Search nonprofits by name" autocomplete="off" aria-label="Search nonprofits">
+        </div>
+
         <div class="alpha-filter">
           <span class="label">Jump to —</span>
           <a href="#" class="active">A</a>
@@ -80,7 +87,7 @@
 
         <div class="nonprofit-list">
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="audubon mid-atlantic">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Audubon Mid-Atlantic</span>
               <div class="nonprofit-meta">
@@ -95,7 +102,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="bartram's garden">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Bartram's Garden</span>
               <div class="nonprofit-meta">
@@ -110,7 +117,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="clean air council">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Clean Air Council</span>
               <div class="nonprofit-meta">
@@ -125,7 +132,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="delaware valley greenhouse alliance">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Delaware Valley Greenhouse Alliance</span>
               <div class="nonprofit-meta">
@@ -140,7 +147,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="fairmount park conservancy">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Fairmount Park Conservancy</span>
               <div class="nonprofit-meta">
@@ -155,7 +162,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="friends of the wissahickon">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Friends of the Wissahickon</span>
               <div class="nonprofit-meta">
@@ -170,7 +177,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="heritage conservancy">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Heritage Conservancy</span>
               <div class="nonprofit-meta">
@@ -185,7 +192,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="philadelphia orchard project">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Philadelphia Orchard Project</span>
               <div class="nonprofit-meta">
@@ -200,7 +207,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="pennsylvania environmental council">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Pennsylvania Environmental Council</span>
               <div class="nonprofit-meta">
@@ -215,7 +222,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="schuylkill river greenways nha">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Schuylkill River Greenways NHA</span>
               <div class="nonprofit-meta">
@@ -230,7 +237,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="tookany/tacony-frankford watershed partnership">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Tookany/Tacony-Frankford Watershed Partnership</span>
               <div class="nonprofit-meta">
@@ -245,7 +252,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="urban tree connection">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Urban Tree Connection</span>
               <div class="nonprofit-meta">
@@ -260,7 +267,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="weaver's way environment center">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Weaver's Way Environment Center</span>
               <div class="nonprofit-meta">
@@ -275,7 +282,7 @@
             </div>
           </a>
 
-          <a href="#" class="nonprofit-item">
+          <a href="#" class="nonprofit-item" data-name="wissahickon environmental center">
             <div class="nonprofit-main">
               <span class="nonprofit-name">Wissahickon Environmental Center</span>
               <div class="nonprofit-meta">
@@ -290,6 +297,10 @@
             </div>
           </a>
 
+        </div>
+
+        <div class="filter-empty" id="filter-empty">
+          <p>No nonprofits match your search.</p>
         </div>
 
         <div class="pagination">
@@ -327,6 +338,29 @@
       <span>&copy; 2026 Roundup.org, Inc.</span>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('nonprofit-filter');
+      if (!input) return;
+      var items = document.querySelectorAll('.nonprofit-item');
+      var empty = document.getElementById('filter-empty');
+
+      input.addEventListener('input', function (e) {
+        var q = e.target.value.toLowerCase().trim();
+        var totalVisible = 0;
+
+        items.forEach(function (item) {
+          var name = item.getAttribute('data-name') || '';
+          var match = !q || name.indexOf(q) !== -1;
+          item.classList.toggle('is-hidden', !match);
+          if (match) totalVisible++;
+        });
+
+        empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+      });
+    })();
+  </script>
 
 </body>
 </html>

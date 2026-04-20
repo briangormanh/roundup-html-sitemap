@@ -37,248 +37,305 @@
         <p class="dek">Choose a city to browse. <strong>128 Pennsylvania cities</strong> have registered environmental nonprofits.</p>
       </header>
 
+      <!-- ============= FEATURED CITIES ============= -->
+      <section class="featured-cities">
+        <div class="featured-head">
+          <div class="section-label">
+            <span class="section-num">Step 3 —</span>
+            <h2 class="section-title">Top Cities</h2>
+          </div>
+          <span class="section-note">Most environmental nonprofits in PA</span>
+        </div>
+        <div class="featured-grid">
+          <a href="philadelphia/index.html" class="featured-city" data-active="true">
+            <span class="featured-name">Philadelphia</span>
+            <span class="featured-count">184 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Pittsburgh</span>
+            <span class="featured-count">142 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Harrisburg</span>
+            <span class="featured-count">68 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Lancaster</span>
+            <span class="featured-count">54 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Allentown</span>
+            <span class="featured-count">41 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">York</span>
+            <span class="featured-count">38 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Erie</span>
+            <span class="featured-count">37 nonprofits</span>
+          </a>
+          <a href="#" class="featured-city">
+            <span class="featured-name">Bethlehem</span>
+            <span class="featured-count">34 nonprofits</span>
+          </a>
+        </div>
+      </section>
+
       <section>
         <div class="section-head">
           <div class="section-label">
-            <span class="section-num">Step 3 —</span>
-            <h2 class="section-title">Choose a city</h2>
+            <span class="section-num">—</span>
+            <h2 class="section-title">Or browse A–Z</h2>
           </div>
-          <span class="section-note">Sorted A–Z</span>
+          <span class="section-note">Alphabetical · 128 cities</span>
         </div>
 
-        <div class="alpha-groups">
+        <div class="city-search">
+          <svg class="city-search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="9" r="6"/><path d="m17 17-3.5-3.5"/>
+          </svg>
+          <input type="text" class="city-search-input" id="city-filter" placeholder="Filter by city name — try &ldquo;beth&rdquo; or &ldquo;lancaster&rdquo;" autocomplete="off" aria-label="Filter cities">
+        </div>
+
+        <div class="alpha-groups" id="alpha-groups">
 
           <div class="alpha-group">
             <span class="alpha-letter">A</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Abington</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item"><span>Aliquippa</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Allentown</span><span class="count">41</span></a>
-              <a href="#" class="alpha-item"><span>Altoona</span><span class="count">18</span></a>
-              <a href="#" class="alpha-item"><span>Ambler</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Ardmore</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="abington"><span>Abington</span><span class="count">12</span></a>
+              <a href="#" class="alpha-item" data-name="aliquippa"><span>Aliquippa</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="allentown"><span>Allentown</span><span class="count">41</span></a>
+              <a href="#" class="alpha-item" data-name="altoona"><span>Altoona</span><span class="count">18</span></a>
+              <a href="#" class="alpha-item" data-name="ambler"><span>Ambler</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="ardmore"><span>Ardmore</span><span class="count">9</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">B</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Bala Cynwyd</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Beaver</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Bensalem</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item"><span>Berwyn</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Bethel Park</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Bethlehem</span><span class="count">34</span></a>
-              <a href="#" class="alpha-item"><span>Bradford</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Bristol</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Bryn Mawr</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item"><span>Butler</span><span class="count">14</span></a>
+              <a href="#" class="alpha-item" data-name="bala cynwyd"><span>Bala Cynwyd</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="beaver"><span>Beaver</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="bensalem"><span>Bensalem</span><span class="count">11</span></a>
+              <a href="#" class="alpha-item" data-name="berwyn"><span>Berwyn</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="bethel park"><span>Bethel Park</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="bethlehem"><span>Bethlehem</span><span class="count">34</span></a>
+              <a href="#" class="alpha-item" data-name="bradford"><span>Bradford</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="bristol"><span>Bristol</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="bryn mawr"><span>Bryn Mawr</span><span class="count">12</span></a>
+              <a href="#" class="alpha-item" data-name="butler"><span>Butler</span><span class="count">14</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">C</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Camp Hill</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Carbondale</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Carlisle</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item"><span>Carnegie</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Chambersburg</span><span class="count">18</span></a>
-              <a href="#" class="alpha-item"><span>Chester</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item"><span>Clarks Summit</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Clearfield</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Coatesville</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item"><span>Conshohocken</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="camp hill"><span>Camp Hill</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="carbondale"><span>Carbondale</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="carlisle"><span>Carlisle</span><span class="count">22</span></a>
+              <a href="#" class="alpha-item" data-name="carnegie"><span>Carnegie</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="chambersburg"><span>Chambersburg</span><span class="count">18</span></a>
+              <a href="#" class="alpha-item" data-name="chester"><span>Chester</span><span class="count">14</span></a>
+              <a href="#" class="alpha-item" data-name="clarks summit"><span>Clarks Summit</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="clearfield"><span>Clearfield</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="coatesville"><span>Coatesville</span><span class="count">11</span></a>
+              <a href="#" class="alpha-item" data-name="conshohocken"><span>Conshohocken</span><span class="count">7</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">D</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Dallas</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Danville</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Devon</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Doylestown</span><span class="count">19</span></a>
-              <a href="#" class="alpha-item"><span>Dresher</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>DuBois</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="dallas"><span>Dallas</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="danville"><span>Danville</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="devon"><span>Devon</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="doylestown"><span>Doylestown</span><span class="count">19</span></a>
+              <a href="#" class="alpha-item" data-name="dresher"><span>Dresher</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="dubois"><span>DuBois</span><span class="count">6</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">E</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>East Stroudsburg</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Easton</span><span class="count">21</span></a>
-              <a href="#" class="alpha-item"><span>Elizabethtown</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Emmaus</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Ephrata</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Erie</span><span class="count">37</span></a>
-              <a href="#" class="alpha-item"><span>Exton</span><span class="count">11</span></a>
+              <a href="#" class="alpha-item" data-name="east stroudsburg"><span>East Stroudsburg</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="easton"><span>Easton</span><span class="count">21</span></a>
+              <a href="#" class="alpha-item" data-name="elizabethtown"><span>Elizabethtown</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="emmaus"><span>Emmaus</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="ephrata"><span>Ephrata</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="erie"><span>Erie</span><span class="count">37</span></a>
+              <a href="#" class="alpha-item" data-name="exton"><span>Exton</span><span class="count">11</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">F</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Fairless Hills</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Fleetwood</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Franklin</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="fairless hills"><span>Fairless Hills</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="fleetwood"><span>Fleetwood</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="franklin"><span>Franklin</span><span class="count">5</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">G</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Gettysburg</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item"><span>Glenside</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Greensburg</span><span class="count">13</span></a>
+              <a href="#" class="alpha-item" data-name="gettysburg"><span>Gettysburg</span><span class="count">14</span></a>
+              <a href="#" class="alpha-item" data-name="glenside"><span>Glenside</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="greensburg"><span>Greensburg</span><span class="count">13</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">H</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Harleysville</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Harrisburg</span><span class="count">68</span></a>
-              <a href="#" class="alpha-item"><span>Haverford</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Hazleton</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Hershey</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Holland</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Horsham</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Huntingdon</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="harleysville"><span>Harleysville</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="harrisburg"><span>Harrisburg</span><span class="count">68</span></a>
+              <a href="#" class="alpha-item" data-name="haverford"><span>Haverford</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="hazleton"><span>Hazleton</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="hershey"><span>Hershey</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="holland"><span>Holland</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="horsham"><span>Horsham</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="huntingdon"><span>Huntingdon</span><span class="count">6</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">I–K</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Indiana</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Jenkintown</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Johnstown</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item"><span>Kennett Square</span><span class="count">10</span></a>
-              <a href="#" class="alpha-item"><span>King of Prussia</span><span class="count">13</span></a>
-              <a href="#" class="alpha-item"><span>Kingston</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Kutztown</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="indiana"><span>Indiana</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="jenkintown"><span>Jenkintown</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="johnstown"><span>Johnstown</span><span class="count">12</span></a>
+              <a href="#" class="alpha-item" data-name="kennett square"><span>Kennett Square</span><span class="count">10</span></a>
+              <a href="#" class="alpha-item" data-name="king of prussia"><span>King of Prussia</span><span class="count">13</span></a>
+              <a href="#" class="alpha-item" data-name="kingston"><span>Kingston</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="kutztown"><span>Kutztown</span><span class="count">6</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">L</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Lancaster</span><span class="count">54</span></a>
-              <a href="#" class="alpha-item"><span>Langhorne</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Latrobe</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Lebanon</span><span class="count">16</span></a>
-              <a href="#" class="alpha-item"><span>Lehighton</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Lewisburg</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Lititz</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Lock Haven</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="lancaster"><span>Lancaster</span><span class="count">54</span></a>
+              <a href="#" class="alpha-item" data-name="langhorne"><span>Langhorne</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="latrobe"><span>Latrobe</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="lebanon"><span>Lebanon</span><span class="count">16</span></a>
+              <a href="#" class="alpha-item" data-name="lehighton"><span>Lehighton</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="lewisburg"><span>Lewisburg</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="lititz"><span>Lititz</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="lock haven"><span>Lock Haven</span><span class="count">5</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">M</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Malvern</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Manheim</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>McMurray</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Meadville</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Media</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item"><span>Mechanicsburg</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item"><span>Monroeville</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Morrisville</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Mount Joy</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="malvern"><span>Malvern</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="manheim"><span>Manheim</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="mcmurray"><span>McMurray</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="meadville"><span>Meadville</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="media"><span>Media</span><span class="count">14</span></a>
+              <a href="#" class="alpha-item" data-name="mechanicsburg"><span>Mechanicsburg</span><span class="count">11</span></a>
+              <a href="#" class="alpha-item" data-name="monroeville"><span>Monroeville</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="morrisville"><span>Morrisville</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="mount joy"><span>Mount Joy</span><span class="count">5</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">N</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>New Castle</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>New Hope</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Newtown</span><span class="count">10</span></a>
-              <a href="#" class="alpha-item"><span>North Wales</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Norristown</span><span class="count">15</span></a>
+              <a href="#" class="alpha-item" data-name="new castle"><span>New Castle</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="new hope"><span>New Hope</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="newtown"><span>Newtown</span><span class="count">10</span></a>
+              <a href="#" class="alpha-item" data-name="north wales"><span>North Wales</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="norristown"><span>Norristown</span><span class="count">15</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">O–P</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Oil City</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Paoli</span><span class="count">6</span></a>
-              <a href="philadelphia/index.html" class="alpha-item" style="color: var(--accent); font-weight: 600;"><span>Philadelphia</span><span class="count">184</span></a>
-              <a href="#" class="alpha-item"><span>Phoenixville</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Pittsburgh</span><span class="count">142</span></a>
-              <a href="#" class="alpha-item"><span>Plymouth Meeting</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Pottstown</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Pottsville</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="oil city"><span>Oil City</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="paoli"><span>Paoli</span><span class="count">6</span></a>
+              <a href="philadelphia/index.html" class="alpha-item" data-name="philadelphia" style="color: var(--accent); font-weight: 600;"><span>Philadelphia</span><span class="count">184</span></a>
+              <a href="#" class="alpha-item" data-name="phoenixville"><span>Phoenixville</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="pittsburgh"><span>Pittsburgh</span><span class="count">142</span></a>
+              <a href="#" class="alpha-item" data-name="plymouth meeting"><span>Plymouth Meeting</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="pottstown"><span>Pottstown</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="pottsville"><span>Pottsville</span><span class="count">7</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">Q–R</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Quakertown</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Radnor</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Reading</span><span class="count">29</span></a>
-              <a href="#" class="alpha-item"><span>Ridley Park</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="quakertown"><span>Quakertown</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="radnor"><span>Radnor</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="reading"><span>Reading</span><span class="count">29</span></a>
+              <a href="#" class="alpha-item" data-name="ridley park"><span>Ridley Park</span><span class="count">3</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">S</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Saint Marys</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Scranton</span><span class="count">31</span></a>
-              <a href="#" class="alpha-item"><span>Selinsgrove</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Sewickley</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>Sharon</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Shippensburg</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Souderton</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>State College</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item"><span>Stroudsburg</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item"><span>Swarthmore</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="saint marys"><span>Saint Marys</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="scranton"><span>Scranton</span><span class="count">31</span></a>
+              <a href="#" class="alpha-item" data-name="selinsgrove"><span>Selinsgrove</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="sewickley"><span>Sewickley</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="sharon"><span>Sharon</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="shippensburg"><span>Shippensburg</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="souderton"><span>Souderton</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="state college"><span>State College</span><span class="count">22</span></a>
+              <a href="#" class="alpha-item" data-name="stroudsburg"><span>Stroudsburg</span><span class="count">8</span></a>
+              <a href="#" class="alpha-item" data-name="swarthmore"><span>Swarthmore</span><span class="count">7</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">T–U</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Titusville</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Towanda</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item"><span>Tyrone</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item"><span>Uniontown</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Upper Darby</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="titusville"><span>Titusville</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="towanda"><span>Towanda</span><span class="count">3</span></a>
+              <a href="#" class="alpha-item" data-name="tyrone"><span>Tyrone</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="uniontown"><span>Uniontown</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="upper darby"><span>Upper Darby</span><span class="count">7</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">V–W</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Valley Forge</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Warminster</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item"><span>Warren</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>Washington</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item"><span>Wayne</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item"><span>Waynesboro</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item"><span>West Chester</span><span class="count">24</span></a>
-              <a href="#" class="alpha-item"><span>Wilkes-Barre</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item"><span>Williamsport</span><span class="count">19</span></a>
-              <a href="#" class="alpha-item"><span>Wyomissing</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="valley forge"><span>Valley Forge</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="warminster"><span>Warminster</span><span class="count">6</span></a>
+              <a href="#" class="alpha-item" data-name="warren"><span>Warren</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="washington"><span>Washington</span><span class="count">11</span></a>
+              <a href="#" class="alpha-item" data-name="wayne"><span>Wayne</span><span class="count">9</span></a>
+              <a href="#" class="alpha-item" data-name="waynesboro"><span>Waynesboro</span><span class="count">5</span></a>
+              <a href="#" class="alpha-item" data-name="west chester"><span>West Chester</span><span class="count">24</span></a>
+              <a href="#" class="alpha-item" data-name="wilkes-barre"><span>Wilkes-Barre</span><span class="count">22</span></a>
+              <a href="#" class="alpha-item" data-name="williamsport"><span>Williamsport</span><span class="count">19</span></a>
+              <a href="#" class="alpha-item" data-name="wyomissing"><span>Wyomissing</span><span class="count">6</span></a>
             </div>
           </div>
 
           <div class="alpha-group">
             <span class="alpha-letter">X–Z</span>
             <div class="alpha-items">
-              <a href="#" class="alpha-item"><span>Yardley</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item"><span>York</span><span class="count">38</span></a>
-              <a href="#" class="alpha-item"><span>Zelienople</span><span class="count">4</span></a>
+              <a href="#" class="alpha-item" data-name="yardley"><span>Yardley</span><span class="count">7</span></a>
+              <a href="#" class="alpha-item" data-name="york"><span>York</span><span class="count">38</span></a>
+              <a href="#" class="alpha-item" data-name="zelienople"><span>Zelienople</span><span class="count">4</span></a>
             </div>
           </div>
 
         </div>
+
+        <div class="filter-empty" id="filter-empty">
+          <p>No cities match your search.</p>
+        </div>
+
       </section>
 
     </main>
@@ -290,6 +347,35 @@
       <span>&copy; 2026 Roundup.org, Inc.</span>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById('city-filter');
+      if (!input) return;
+      var groups = document.querySelectorAll('.alpha-group');
+      var items = document.querySelectorAll('.alpha-item');
+      var empty = document.getElementById('filter-empty');
+
+      input.addEventListener('input', function (e) {
+        var q = e.target.value.toLowerCase().trim();
+        var totalVisible = 0;
+
+        items.forEach(function (item) {
+          var name = item.getAttribute('data-name') || '';
+          var match = !q || name.indexOf(q) !== -1;
+          item.classList.toggle('is-hidden', !match);
+          if (match) totalVisible++;
+        });
+
+        groups.forEach(function (group) {
+          var visibleCount = group.querySelectorAll('.alpha-item:not(.is-hidden)').length;
+          group.classList.toggle('is-empty', visibleCount === 0);
+        });
+
+        empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
+      });
+    })();
+  </script>
 
 </body>
 </html>
