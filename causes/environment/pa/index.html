@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Environmental Nonprofits in Pennsylvania — Sitemap — Roundup.org</title>
+  <title>Environmental Nonprofits in Pennsylvania — Sitemap (Lean) — Roundup.org</title>
+  <link rel="canonical" href="index.html">
   <link rel="stylesheet" href="../../../styles.css">
 </head>
 <body>
@@ -32,308 +33,240 @@
       </nav>
 
       <header class="page-head">
-        <div class="kicker">Pennsylvania · 3,244 Environmental Nonprofits</div>
-        <h1><em>Environmental</em> Nonprofits in Pennsylvania</h1>
-        <p class="dek">Choose a city to browse. <strong>128 Pennsylvania cities</strong> have registered environmental nonprofits.</p>
+        <div class="kicker">Pennsylvania · <span id="result-count">3,244</span> Environmental Nonprofits</div>
+        <h1><em>Environmental</em> Nonprofits in <span id="page-location">Pennsylvania</span></h1>
+        <p class="dek"><span id="dek-intro">Browse 3,244 environmental nonprofits across 128 PA cities.</span> Filter by city or search by name.</p>
       </header>
 
-      <!-- ============= FEATURED CITIES ============= -->
-      <section class="featured-cities">
+      <!-- ============= ACTIVE FILTER CHIP (shown when ?city=X) ============= -->
+      <div class="filter-chip-bar" id="filter-chip-bar" hidden>
+        <div class="filter-chip">
+          <span class="filter-chip-label">Filtering by:</span>
+          <span class="filter-chip-value" id="filter-chip-value">Philadelphia</span>
+          <a href="index.html" class="filter-chip-clear" id="filter-chip-clear" aria-label="Clear filter">&times;</a>
+        </div>
+        <span class="filter-chip-summary" id="filter-chip-summary">Showing 184 of 3,244 nonprofits</span>
+      </div>
+
+      <!-- ============= TOP CITIES ============= -->
+      <section class="featured-cities" id="top-cities-section">
         <div class="featured-head">
           <div class="section-label">
-            <span class="section-num">Step 3 —</span>
+            <span class="section-num">—</span>
             <h2 class="section-title">Top Cities</h2>
           </div>
-          <span class="section-note">Most environmental nonprofits in PA</span>
+          <span class="section-note">Click to filter — URL updates, list narrows</span>
         </div>
         <div class="featured-grid">
-          <a href="philadelphia/index.html" class="featured-city" data-active="true">
-            <span class="featured-name">Philadelphia</span>
-            <span class="featured-count">184 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Pittsburgh</span>
-            <span class="featured-count">142 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Harrisburg</span>
-            <span class="featured-count">68 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Lancaster</span>
-            <span class="featured-count">54 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Allentown</span>
-            <span class="featured-count">41 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">York</span>
-            <span class="featured-count">38 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Erie</span>
-            <span class="featured-count">37 nonprofits</span>
-          </a>
-          <a href="#" class="featured-city">
-            <span class="featured-name">Bethlehem</span>
-            <span class="featured-count">34 nonprofits</span>
-          </a>
+          <a href="?city=philadelphia" class="featured-city" data-city="philadelphia"><span class="featured-name">Philadelphia</span><span class="featured-count">184 nonprofits</span></a>
+          <a href="?city=pittsburgh" class="featured-city" data-city="pittsburgh"><span class="featured-name">Pittsburgh</span><span class="featured-count">142 nonprofits</span></a>
+          <a href="?city=harrisburg" class="featured-city" data-city="harrisburg"><span class="featured-name">Harrisburg</span><span class="featured-count">68 nonprofits</span></a>
+          <a href="?city=lancaster" class="featured-city" data-city="lancaster"><span class="featured-name">Lancaster</span><span class="featured-count">54 nonprofits</span></a>
+          <a href="?city=allentown" class="featured-city" data-city="allentown"><span class="featured-name">Allentown</span><span class="featured-count">41 nonprofits</span></a>
+          <a href="?city=york" class="featured-city" data-city="york"><span class="featured-name">York</span><span class="featured-count">38 nonprofits</span></a>
+          <a href="?city=erie" class="featured-city" data-city="erie"><span class="featured-name">Erie</span><span class="featured-count">37 nonprofits</span></a>
+          <a href="?city=bethlehem" class="featured-city" data-city="bethlehem"><span class="featured-name">Bethlehem</span><span class="featured-count">34 nonprofits</span></a>
         </div>
       </section>
 
+      <!-- ============= SEARCH + NONPROFIT LIST ============= -->
       <section>
         <div class="section-head">
           <div class="section-label">
             <span class="section-num">—</span>
-            <h2 class="section-title">Or browse A–Z</h2>
+            <h2 class="section-title" id="list-heading">All Environmental Nonprofits in Pennsylvania</h2>
           </div>
-          <span class="section-note">Alphabetical · 128 cities</span>
+          <span class="section-note" id="list-subheading">Sample of 3,244</span>
         </div>
 
         <div class="city-search">
           <svg class="city-search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="9" r="6"/><path d="m17 17-3.5-3.5"/>
           </svg>
-          <input type="text" class="city-search-input" id="city-filter" placeholder="Filter by city name — try &ldquo;beth&rdquo; or &ldquo;lancaster&rdquo;" autocomplete="off" aria-label="Filter cities">
+          <input type="text" class="city-search-input" id="nonprofit-filter" placeholder="Search nonprofits by name" autocomplete="off" aria-label="Search nonprofits">
         </div>
 
-        <div class="alpha-groups" id="alpha-groups">
+        <div class="nonprofit-list" id="nonprofit-list">
 
-          <div class="alpha-group">
-            <span class="alpha-letter">A</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="abington"><span>Abington</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item" data-name="aliquippa"><span>Aliquippa</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="allentown"><span>Allentown</span><span class="count">41</span></a>
-              <a href="#" class="alpha-item" data-name="altoona"><span>Altoona</span><span class="count">18</span></a>
-              <a href="#" class="alpha-item" data-name="ambler"><span>Ambler</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="ardmore"><span>Ardmore</span><span class="count">9</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="audubon mid-atlantic">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Audubon Mid-Atlantic</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19130</span><span class="dot">·</span><span>Wildlife Protection</span></div>
+              <p class="nonprofit-mission">Protects birds and the places they need to thrive through conservation, education, and advocacy.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 13-1624102</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">B</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="bala cynwyd"><span>Bala Cynwyd</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="beaver"><span>Beaver</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="bensalem"><span>Bensalem</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item" data-name="berwyn"><span>Berwyn</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="bethel park"><span>Bethel Park</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="bethlehem"><span>Bethlehem</span><span class="count">34</span></a>
-              <a href="#" class="alpha-item" data-name="bradford"><span>Bradford</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="bristol"><span>Bristol</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="bryn mawr"><span>Bryn Mawr</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item" data-name="butler"><span>Butler</span><span class="count">14</span></a>
+          <a href="#" class="nonprofit-item" data-city="pittsburgh" data-name="allegheny land trust">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Allegheny Land Trust</span>
+              <div class="nonprofit-meta"><span>Pittsburgh, PA 15228</span><span class="dot">·</span><span>Land Conservation</span></div>
+              <p class="nonprofit-mission">Preserves and maintains land of ecological, recreational, or historical significance in Western Pennsylvania.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 25-1680144</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">C</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="camp hill"><span>Camp Hill</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="carbondale"><span>Carbondale</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="carlisle"><span>Carlisle</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item" data-name="carnegie"><span>Carnegie</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="chambersburg"><span>Chambersburg</span><span class="count">18</span></a>
-              <a href="#" class="alpha-item" data-name="chester"><span>Chester</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item" data-name="clarks summit"><span>Clarks Summit</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="clearfield"><span>Clearfield</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="coatesville"><span>Coatesville</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item" data-name="conshohocken"><span>Conshohocken</span><span class="count">7</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="bartram's garden">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Bartram's Garden</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19143</span><span class="dot">·</span><span>Botanical Garden · Land Trust</span></div>
+              <p class="nonprofit-mission">Stewards America's oldest living botanic garden along the Schuylkill River.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1654398</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">D</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="dallas"><span>Dallas</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="danville"><span>Danville</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="devon"><span>Devon</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="doylestown"><span>Doylestown</span><span class="count">19</span></a>
-              <a href="#" class="alpha-item" data-name="dresher"><span>Dresher</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="dubois"><span>DuBois</span><span class="count">6</span></a>
+          <a href="#" class="nonprofit-item" data-city="state college" data-name="clearwater conservancy">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">ClearWater Conservancy</span>
+              <div class="nonprofit-meta"><span>State College, PA 16801</span><span class="dot">·</span><span>Watershed Protection</span></div>
+              <p class="nonprofit-mission">Protects and restores water and land resources in the Centre County region.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2503088</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">E</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="east stroudsburg"><span>East Stroudsburg</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="easton"><span>Easton</span><span class="count">21</span></a>
-              <a href="#" class="alpha-item" data-name="elizabethtown"><span>Elizabethtown</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="emmaus"><span>Emmaus</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="ephrata"><span>Ephrata</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="erie"><span>Erie</span><span class="count">37</span></a>
-              <a href="#" class="alpha-item" data-name="exton"><span>Exton</span><span class="count">11</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="clean air council">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Clean Air Council</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19107</span><span class="dot">·</span><span>Environmental Advocacy</span></div>
+              <p class="nonprofit-mission">Dedicated to protecting and defending everyone's right to breathe clean air through advocacy, litigation, and public education.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1734201</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">F</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="fairless hills"><span>Fairless Hills</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="fleetwood"><span>Fleetwood</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="franklin"><span>Franklin</span><span class="count">5</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="fairmount park conservancy">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Fairmount Park Conservancy</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19131</span><span class="dot">·</span><span>Parks &amp; Recreation</span></div>
+              <p class="nonprofit-mission">Leads efforts to improve, restore, and maintain the parks and historic places of the Fairmount Park system.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2887104</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">G</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="gettysburg"><span>Gettysburg</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item" data-name="glenside"><span>Glenside</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="greensburg"><span>Greensburg</span><span class="count">13</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="friends of the wissahickon">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Friends of the Wissahickon</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19118</span><span class="dot">·</span><span>Conservation</span></div>
+              <p class="nonprofit-mission">Preserves the natural beauty and wildness of the Wissahickon Valley.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1365422</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">H</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="harleysville"><span>Harleysville</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="harrisburg"><span>Harrisburg</span><span class="count">68</span></a>
-              <a href="#" class="alpha-item" data-name="haverford"><span>Haverford</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="hazleton"><span>Hazleton</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="hershey"><span>Hershey</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="holland"><span>Holland</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="horsham"><span>Horsham</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="huntingdon"><span>Huntingdon</span><span class="count">6</span></a>
+          <a href="#" class="nonprofit-item" data-city="lancaster" data-name="lancaster county conservancy">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Lancaster County Conservancy</span>
+              <div class="nonprofit-meta"><span>Lancaster, PA 17602</span><span class="dot">·</span><span>Land Trust</span></div>
+              <p class="nonprofit-mission">Protects natural lands and waters of Lancaster and Chester Counties and connects communities to nature.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1974622</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">I–K</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="indiana"><span>Indiana</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="jenkintown"><span>Jenkintown</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="johnstown"><span>Johnstown</span><span class="count">12</span></a>
-              <a href="#" class="alpha-item" data-name="kennett square"><span>Kennett Square</span><span class="count">10</span></a>
-              <a href="#" class="alpha-item" data-name="king of prussia"><span>King of Prussia</span><span class="count">13</span></a>
-              <a href="#" class="alpha-item" data-name="kingston"><span>Kingston</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="kutztown"><span>Kutztown</span><span class="count">6</span></a>
+          <a href="#" class="nonprofit-item" data-city="lancaster" data-name="lancaster farmland trust">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Lancaster Farmland Trust</span>
+              <div class="nonprofit-meta"><span>Lancaster, PA 17602</span><span class="dot">·</span><span>Farmland Preservation</span></div>
+              <p class="nonprofit-mission">Preserves Lancaster County's irreplaceable farmland and rural heritage.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2441088</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">L</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="lancaster"><span>Lancaster</span><span class="count">54</span></a>
-              <a href="#" class="alpha-item" data-name="langhorne"><span>Langhorne</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="latrobe"><span>Latrobe</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="lebanon"><span>Lebanon</span><span class="count">16</span></a>
-              <a href="#" class="alpha-item" data-name="lehighton"><span>Lehighton</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="lewisburg"><span>Lewisburg</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="lititz"><span>Lititz</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="lock haven"><span>Lock Haven</span><span class="count">5</span></a>
+          <a href="#" class="nonprofit-item" data-city="allentown" data-name="lehigh gap nature center">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Lehigh Gap Nature Center</span>
+              <div class="nonprofit-meta"><span>Slatington, PA 18080</span><span class="dot">·</span><span>Nature Education · Habitat Restoration</span></div>
+              <p class="nonprofit-mission">Pioneers the restoration of a Superfund site into a thriving wildlife refuge and education center.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2611088</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">M</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="malvern"><span>Malvern</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="manheim"><span>Manheim</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="mcmurray"><span>McMurray</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="meadville"><span>Meadville</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="media"><span>Media</span><span class="count">14</span></a>
-              <a href="#" class="alpha-item" data-name="mechanicsburg"><span>Mechanicsburg</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item" data-name="monroeville"><span>Monroeville</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="morrisville"><span>Morrisville</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="mount joy"><span>Mount Joy</span><span class="count">5</span></a>
+          <a href="#" class="nonprofit-item" data-city="harrisburg" data-name="pennsylvania environmental council">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Pennsylvania Environmental Council</span>
+              <div class="nonprofit-meta"><span>Harrisburg, PA 17101</span><span class="dot">·</span><span>Environmental Advocacy</span></div>
+              <p class="nonprofit-mission">Leads partnerships to advance innovative solutions that build a clean and conservation economy.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1719803</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">N</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="new castle"><span>New Castle</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="new hope"><span>New Hope</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="newtown"><span>Newtown</span><span class="count">10</span></a>
-              <a href="#" class="alpha-item" data-name="north wales"><span>North Wales</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="norristown"><span>Norristown</span><span class="count">15</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="philadelphia orchard project">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Philadelphia Orchard Project</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19104</span><span class="dot">·</span><span>Urban Forestry</span></div>
+              <p class="nonprofit-mission">Plants orchards in Philadelphia that grow healthy food, green spaces, and community food security.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 26-0815023</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">O–P</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="oil city"><span>Oil City</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="paoli"><span>Paoli</span><span class="count">6</span></a>
-              <a href="philadelphia/index.html" class="alpha-item" data-name="philadelphia" style="color: var(--accent); font-weight: 600;"><span>Philadelphia</span><span class="count">184</span></a>
-              <a href="#" class="alpha-item" data-name="phoenixville"><span>Phoenixville</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="pittsburgh"><span>Pittsburgh</span><span class="count">142</span></a>
-              <a href="#" class="alpha-item" data-name="plymouth meeting"><span>Plymouth Meeting</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="pottstown"><span>Pottstown</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="pottsville"><span>Pottsville</span><span class="count">7</span></a>
+          <a href="#" class="nonprofit-item" data-city="pittsburgh" data-name="pittsburgh parks conservancy">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Pittsburgh Parks Conservancy</span>
+              <div class="nonprofit-meta"><span>Pittsburgh, PA 15219</span><span class="dot">·</span><span>Parks &amp; Recreation</span></div>
+              <p class="nonprofit-mission">Restores and maintains Pittsburgh's historic parks in partnership with the City.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 25-1790880</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">Q–R</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="quakertown"><span>Quakertown</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="radnor"><span>Radnor</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="reading"><span>Reading</span><span class="count">29</span></a>
-              <a href="#" class="alpha-item" data-name="ridley park"><span>Ridley Park</span><span class="count">3</span></a>
+          <a href="#" class="nonprofit-item" data-city="pittsburgh" data-name="pennfuture">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">PennFuture</span>
+              <div class="nonprofit-meta"><span>Pittsburgh, PA 15222</span><span class="dot">·</span><span>Climate &amp; Clean Energy</span></div>
+              <p class="nonprofit-mission">Leads the transition to a clean-energy economy in Pennsylvania through advocacy and legal action.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2872044</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">S</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="saint marys"><span>Saint Marys</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="scranton"><span>Scranton</span><span class="count">31</span></a>
-              <a href="#" class="alpha-item" data-name="selinsgrove"><span>Selinsgrove</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="sewickley"><span>Sewickley</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="sharon"><span>Sharon</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="shippensburg"><span>Shippensburg</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="souderton"><span>Souderton</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="state college"><span>State College</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item" data-name="stroudsburg"><span>Stroudsburg</span><span class="count">8</span></a>
-              <a href="#" class="alpha-item" data-name="swarthmore"><span>Swarthmore</span><span class="count">7</span></a>
+          <a href="#" class="nonprofit-item" data-city="philadelphia" data-name="schuylkill river greenways">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Schuylkill River Greenways NHA</span>
+              <div class="nonprofit-meta"><span>Philadelphia, PA 19143</span><span class="dot">·</span><span>River Conservation</span></div>
+              <p class="nonprofit-mission">Connects communities to the Schuylkill River and the Schuylkill River Trail.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-2708144</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">T–U</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="titusville"><span>Titusville</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="towanda"><span>Towanda</span><span class="count">3</span></a>
-              <a href="#" class="alpha-item" data-name="tyrone"><span>Tyrone</span><span class="count">4</span></a>
-              <a href="#" class="alpha-item" data-name="uniontown"><span>Uniontown</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="upper darby"><span>Upper Darby</span><span class="count">7</span></a>
+          <a href="#" class="nonprofit-item" data-city="erie" data-name="tamarack wildlife center">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Tamarack Wildlife Center</span>
+              <div class="nonprofit-meta"><span>Saegertown, PA 16433</span><span class="dot">·</span><span>Wildlife Rehabilitation</span></div>
+              <p class="nonprofit-mission">Rehabilitates and releases injured and orphaned native wildlife in Northwest Pennsylvania.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 25-1740622</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">V–W</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="valley forge"><span>Valley Forge</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="warminster"><span>Warminster</span><span class="count">6</span></a>
-              <a href="#" class="alpha-item" data-name="warren"><span>Warren</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="washington"><span>Washington</span><span class="count">11</span></a>
-              <a href="#" class="alpha-item" data-name="wayne"><span>Wayne</span><span class="count">9</span></a>
-              <a href="#" class="alpha-item" data-name="waynesboro"><span>Waynesboro</span><span class="count">5</span></a>
-              <a href="#" class="alpha-item" data-name="west chester"><span>West Chester</span><span class="count">24</span></a>
-              <a href="#" class="alpha-item" data-name="wilkes-barre"><span>Wilkes-Barre</span><span class="count">22</span></a>
-              <a href="#" class="alpha-item" data-name="williamsport"><span>Williamsport</span><span class="count">19</span></a>
-              <a href="#" class="alpha-item" data-name="wyomissing"><span>Wyomissing</span><span class="count">6</span></a>
+          <a href="#" class="nonprofit-item" data-city="pittsburgh" data-name="three rivers waterkeeper">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Three Rivers Waterkeeper</span>
+              <div class="nonprofit-meta"><span>Pittsburgh, PA 15203</span><span class="dot">·</span><span>Water Protection</span></div>
+              <p class="nonprofit-mission">Protects the Monongahela, Allegheny, and Ohio Rivers through advocacy, monitoring, and enforcement.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 46-2281455</span></div>
+          </a>
 
-          <div class="alpha-group">
-            <span class="alpha-letter">X–Z</span>
-            <div class="alpha-items">
-              <a href="#" class="alpha-item" data-name="yardley"><span>Yardley</span><span class="count">7</span></a>
-              <a href="#" class="alpha-item" data-name="york"><span>York</span><span class="count">38</span></a>
-              <a href="#" class="alpha-item" data-name="zelienople"><span>Zelienople</span><span class="count">4</span></a>
+          <a href="#" class="nonprofit-item" data-city="allentown" data-name="wildlands conservancy">
+            <div class="nonprofit-main">
+              <span class="nonprofit-name">Wildlands Conservancy</span>
+              <div class="nonprofit-meta"><span>Emmaus, PA 18049</span><span class="dot">·</span><span>Land Trust</span></div>
+              <p class="nonprofit-mission">Preserves wild and natural places, restores the Lehigh River and its tributaries, and connects children to nature.</p>
             </div>
-          </div>
+            <div class="nonprofit-tags"><span class="nonprofit-tag">501(c)(3)</span><span class="nonprofit-tag ein">EIN 23-1700422</span></div>
+          </a>
 
         </div>
 
         <div class="filter-empty" id="filter-empty">
-          <p>No cities match your search.</p>
+          <p>No nonprofits match your filter.</p>
+        </div>
+
+        <div class="pagination">
+          <span class="count">Showing <strong id="visible-count">19</strong> of <strong id="total-count">3,244</strong></span>
+          <div class="page-links">
+            <a href="#" class="arrow">&larr;</a>
+            <a href="#" class="current">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">&hellip;</a>
+            <a href="#">171</a>
+            <a href="#" class="arrow">&rarr;</a>
+          </div>
         </div>
 
       </section>
@@ -350,30 +283,79 @@
 
   <script>
     (function () {
-      var input = document.getElementById('city-filter');
-      if (!input) return;
-      var groups = document.querySelectorAll('.alpha-group');
-      var items = document.querySelectorAll('.alpha-item');
+      // Total counts per city (for UI updates). In production this comes from the server.
+      var CITY_COUNTS = {
+        philadelphia: 184, pittsburgh: 142, harrisburg: 68, lancaster: 54,
+        allentown: 41, york: 38, erie: 37, bethlehem: 34
+      };
+      var CITY_LABELS = {
+        philadelphia: 'Philadelphia', pittsburgh: 'Pittsburgh', harrisburg: 'Harrisburg',
+        lancaster: 'Lancaster', allentown: 'Allentown', york: 'York', erie: 'Erie',
+        bethlehem: 'Bethlehem', 'state college': 'State College'
+      };
+
+      var params = new URLSearchParams(window.location.search);
+      var city = (params.get('city') || '').toLowerCase().trim();
+
+      var chipBar = document.getElementById('filter-chip-bar');
+      var chipValue = document.getElementById('filter-chip-value');
+      var chipSummary = document.getElementById('filter-chip-summary');
+      var chipClear = document.getElementById('filter-chip-clear');
+      var items = document.querySelectorAll('.nonprofit-item');
       var empty = document.getElementById('filter-empty');
+      var input = document.getElementById('nonprofit-filter');
+      var resultCount = document.getElementById('result-count');
+      var visibleCount = document.getElementById('visible-count');
+      var totalCount = document.getElementById('total-count');
+      var pageLocation = document.getElementById('page-location');
+      var dekIntro = document.getElementById('dek-intro');
+      var listHeading = document.getElementById('list-heading');
+      var listSubheading = document.getElementById('list-subheading');
+      var topCitiesSection = document.getElementById('top-cities-section');
+      var featuredCards = document.querySelectorAll('.featured-city[data-city]');
 
-      input.addEventListener('input', function (e) {
-        var q = e.target.value.toLowerCase().trim();
-        var totalVisible = 0;
-
+      function applyFilters() {
+        var query = input.value.toLowerCase().trim();
+        var shown = 0;
         items.forEach(function (item) {
-          var name = item.getAttribute('data-name') || '';
-          var match = !q || name.indexOf(q) !== -1;
-          item.classList.toggle('is-hidden', !match);
-          if (match) totalVisible++;
+          var itemCity = item.getAttribute('data-city') || '';
+          var itemName = item.getAttribute('data-name') || '';
+          var cityMatch = !city || itemCity === city;
+          var queryMatch = !query || itemName.indexOf(query) !== -1;
+          var visible = cityMatch && queryMatch;
+          item.classList.toggle('is-hidden', !visible);
+          if (visible) shown++;
         });
+        empty.style.display = (shown === 0) ? 'block' : 'none';
+        if (visibleCount) visibleCount.textContent = shown;
+      }
 
-        groups.forEach(function (group) {
-          var visibleCount = group.querySelectorAll('.alpha-item:not(.is-hidden)').length;
-          group.classList.toggle('is-empty', visibleCount === 0);
+      // Initial render based on URL param
+      if (city && CITY_LABELS[city]) {
+        var label = CITY_LABELS[city];
+        var cityTotal = CITY_COUNTS[city] || shown;
+        chipValue.textContent = label;
+        chipSummary.textContent = 'Showing ' + cityTotal + ' of 3,244 nonprofits in PA';
+        chipBar.hidden = false;
+        if (pageLocation) pageLocation.textContent = label;
+        if (dekIntro) dekIntro.textContent = 'Browse ' + cityTotal + ' environmental nonprofits in ' + label + '.';
+        if (resultCount) resultCount.textContent = cityTotal;
+        if (totalCount) totalCount.textContent = cityTotal;
+        if (listHeading) listHeading.textContent = 'Environmental Nonprofits in ' + label;
+        if (listSubheading) listSubheading.textContent = 'Sample of ' + cityTotal;
+        if (topCitiesSection) topCitiesSection.style.display = 'none';
+
+        // Highlight the active featured card (not really visible now since section is hidden, but good form)
+        featuredCards.forEach(function (card) {
+          if (card.getAttribute('data-city') === city) card.setAttribute('data-active', 'true');
         });
+      }
 
-        empty.style.display = (q && totalVisible === 0) ? 'block' : 'none';
-      });
+      // Search as user types
+      input.addEventListener('input', applyFilters);
+
+      // Apply filters on load
+      applyFilters();
     })();
   </script>
 
