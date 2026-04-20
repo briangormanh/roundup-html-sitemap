@@ -38,10 +38,14 @@
 
       <!-- ============= ACTIVE FILTER CHIP (shown when ?city=X) ============= -->
       <div class="filter-chip-bar" id="filter-chip-bar" hidden>
+        <span class="filter-chip-label">Filtering by:</span>
         <div class="filter-chip">
-          <span class="filter-chip-label">Filtering by:</span>
+          <span class="filter-chip-value">Pennsylvania</span>
+          <a href="../../index.html" class="filter-chip-clear" aria-label="Clear state filter">&times;</a>
+        </div>
+        <div class="filter-chip">
           <span class="filter-chip-value" id="filter-chip-value">Philadelphia</span>
-          <a href="index.html" class="filter-chip-clear" aria-label="Clear filter">&times;</a>
+          <a href="index.html" class="filter-chip-clear" aria-label="Clear city filter">&times;</a>
         </div>
         <span class="filter-chip-summary" id="filter-chip-summary">Cause counts scoped to Philadelphia</span>
       </div>
