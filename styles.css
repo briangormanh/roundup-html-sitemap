@@ -281,8 +281,9 @@ h1 em {
 
 .cause-list {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  column-gap: 40px;
+  row-gap: 0;
 }
 
 .cause-item {
