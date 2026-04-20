@@ -280,10 +280,12 @@ h1 em {
    ========================================================= */
 
 .cause-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  column-width: 340px;
   column-gap: 40px;
-  row-gap: 0;
+}
+
+.cause-list .cause-item {
+  break-inside: avoid;
 }
 
 .cause-item {
